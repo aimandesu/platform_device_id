@@ -18,7 +18,7 @@ public class PlatformDeviceIdPlugin: FlutterPlugin, MethodCallHandler {
   private lateinit var channel : MethodChannel
 
   override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-    channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "platform_device_id")
+    channel = MethodChannel(flutterPluginBinding.binaryMessenger, "platform_device_id")
     channel.setMethodCallHandler(this);
   }
 
